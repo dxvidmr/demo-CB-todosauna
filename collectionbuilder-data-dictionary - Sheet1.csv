@@ -1,0 +1,61 @@
+Field,DisplayName,DCMap,SchemaMap,ExampleValue,Definition,DataType,InputRules,Obligation,Search,Notes
+objectid,,,,coll001,A unique string with no spaces or special characters that will be used as an ID in the website. Records without an objectid will not be displayed in the collection. Records with non-unique objectid will be overwritten.,Text,"Each objectid must be unique. Each objectid property should have a single value. This should be a unique string, all lowercase with no spaces or special characters as it will be used to form the item’s URL. Underscores (_) and dashes (-) are okay; slashes (/) should NOT be used in this field.",Required,No,
+parentid,,,,coll001,"A string that matches the objectid of the parent item for a child record. This is used for compound object type Items. Records with a parentid value will not generate an individual Item page, and will only appear on their parent's Item page.",Text,"For parent records and non-compound object type records, parentid will be blank. For child records, parentid must match a valid objectid for a parent record. ",Required for child records,No,
+title,Title,DCTERMS:title,headline,"Haystack Rock
+
+White Pass and Yukon Railroad Train",A name given to the resource.,Text,Each title property should have a single title value.,Required,Yes,"Used through out the template theme, having a blank title will result in empty headers and links."
+creator,Creator,DCTERMS:creator,creator,"Smith, John
+
+Smith, John; Doe, Jane",An entity primarily responsible for making the resource.,Text,"For multiple creators, separate values with a semicolon.",Recommended,Yes,
+date,Date Created,DCTERMS:date,dateCreated,"Year: YYYY (1997)
+
+Year and month: YYYY-MM (1997-07)
+
+Complete date:
+YYYY-MM-DD (1997-07-16)",A point or period of time associated with an event in the lifecycle of the resource.,Integer,"A resource may have several dates associated with it. The date covered by this table refers to the creation of the original resource, that is, when the resource was first created, before undergoing any conversion.
+
+If the date is unknown, specify an estimated date or date range.",Required,Yes,
+description,Description,DCTERMS:description,description,"Camp II Bus Station at Poston with a Japanese flair.
+
+Postcard of the Memorial Gymnasium on the University of Idaho campus in Moscow, Idaho.",An account of the resource. ,Text,"Anything significant about the digital resource not covered elsewhere. Use standard punctuation and grammar to describe the item’s history, physical appearance, contents, abstract, etc.",Recommended,Yes,
+subject,Subjects,DCTERMS:subject,keywords,"Dentistry
+
+Dogs; Cats; Zebras",The topic of the resource.,Text,"For multiple subjects, separate values with a semicolon.",Not Required,Yes,Used on the default Subject page cloud.
+location,Location,DCTERMS:coverage,contentLocation,"Pullman, Washington",A geographic location to which the resource applies.,Text,Use for human readable place name.,Not Required,Yes,Used on the default Location page cloud.
+latitude,Latitude,DCTERMS:coverage,,46.731643,A geographic coordinate that specifies the north-south position of an item's place.,Decimal,Expressed as decimal degrees instead of degrees-minutes-seconds format.,Not Required,No,Used on default Map page.
+longitude,Longitude,DCTERMS:coverage,,-117.165625,A geographic coordinate that specifies the east-west position of an item's place.,Decimal,Expressed as decimal degrees instead of degrees-minutes-seconds format.,Not Required,No,Used on default Map page.
+source,Source Collection,DCTERMS:source,,"PG 5, University of Idaho Library Special Collections and Archives","The source field designates a related source collection or resource from which the object is derived. This field is especially relevant for digitized archival collections. In such a situation, the name of the physical archival collection would be the input for this field.",Text,"Generally expressed as collection name followed by a comma, then followed by holding library. Or as a valid citation.",Recommended,No,Displayed on the default Item page.
+identifier,Source Identifier,DCTERMS:identifier,,"Postcard_023
+
+ARG-02-16-1993",An unambiguous reference to the resource within a given context.,Text,"
+
+Use to reflect unique naming given by source collection",Recommended,No,
+type,Type,DCTERMS:type,,"Image; Black-and-white photographs
+
+Image; MovingImage
+
+Text; Articles","Distinguishes between types of image, sound, text, etc. using a one- or two-value input.",Text,"At minimum, the input should contain a value chosen from the DCMI Type Vocabulary (https://www.dublincore.org/specifications/dublin-core/dcmi-type-vocabulary/2003-02-12/). If using a second value, the second value does not need to relate to a controlled vocabulary, but should give further specification of the object type. The two values in a pair should be separated by a semi-colon (`;`).",Recommended,No,
+format,Format,DCTERMS:format,encodingFormat,"audio/mp3
+
+application/pdf
+
+image/jpeg
+
+video/mp4",The digital file format of the resource or media type.,Text,"The digital format of the resource. The input for this field should be structured according to MIME type standards, consisting of a type and a subtype concatenated with a slash (`/`) between them. A list of MIME types can be found here: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types.",Recommended; Required for CB-GH,No,"CB-GH uses format to choose the Item display types, so is required to function correctly in CB-GH. It is not required in CB-CSV."
+language,Language,DCTERMS:language,,en,A language of the resource,Text,Recommended best practice is to use a controlled vocabulary such as http://www.loc.gov/standards/iso639-2/php/code_list.php,Recommended,No,
+rights,Rights,DCTERMS:rights,,"Educational use includes non-commercial use of text and images in materials for teaching and research purposes. Digital reproduction rights granted by the University of Idaho Library. For other uses beyond free use, please contact University of Idaho Library Special Collections and Archives Department.",Information about rights held in and over the resource.,Text,A free-text rights statement that complements the selected standardized rights statement.,Recommended,No,Displayed on the default Item page.
+rightsstatement,Rights,DCTERMS:rights,license,http://rightsstatements.org/vocab/NoC-US/1.0/,"A standardized rights statement, presented as a creativecommons.org URI or rightsstatements.org URI ",URL,"When choosing a standardized rights statement: 
+Use a rightsstatements.org statement to express the rights status if your institution does not hold the rights, or if your institution holds the rights but does not wish to use a Creative Commons license. 
+Use a Creative Commons license if your institution hold the rights and you’re authorized to make that determination. If the creator already assigned one, use they one they assigned. 
+For materials in the public domain, use a rightsstatement.org statement or the Creative Commons Public Domain Mark. ",Recommended,No,Displayed on the default Item page.
+filename,,,,pg1_440.jpg,"This is the digital object's filename, including the name itself as well as the object's file extension. For externally hosted items, this may be a full URL.",Text,Each filename property should have a single value and end with a file extension.,Not Required,No,"Used by CB-GH for display and download of objects. CB-GH assumes the files are in the ""objects/"" directory. Not used by CB-CSV."
+display_template,,,,image ,Sets the template type used for the Item page and is used in logic to choose representations in other pages. If blank the object will default to a generic item page.,Text,"Must match one of the item layouts found in the ""_layouts/item/"" directory.",Recommended,No,Not used by CB-GH.
+object_location,,,,/objects/demo_001.jpg,A full URL to download the full quality digital object or relative path if the files are contained with in the project. YouTube and Vimeo links can be used for video items. For some record types this may be a link to an external website such as a journal article page (not necessarily a download or file).,URL,Valid URL or relative path,Not Required,No,Not used by CB-GH.
+image_small,,,,/objects/small/demo_003_sm.jpg,"A full URL to a small sized image representation of the object or relative path if files are contained with in the project, which will be used to represent the Item.",URL,Valid URL or relative path,Not Required,No,Not used by CB-GH.
+image_thumb,,,,/objects/thumbs/demo_003_th.jpg,"A full URL to a thumb size image representation of the object or relative path if files are contained with in the project, which will be used to represent the Item.",URL,Valid URL or relative path,Not Required,No,Not used by CB-GH.
+image_alt_text,,,,man standing with pump machinery next to a river with trees and mountains in the distance,"An appropriate textual description of the image_small representation of the item. The alt text corresponds to the image_small (not necessarily the file at object_location). This value will be used as the “alt” value of the image element, which is important for accessibility.",Text,Plain text description value.,Not Required,No,Not used by CB-GH.
+object_transcript,,,,/objects/demo_005.txt,"A text transcript of the item’s content. This is most commonly used with video and audio items, but can be for any item type. The contents of the field will be rendered as Markdown on the Item page.",Text,"Full plain text of the transcript, or a relative link to a .txt or .md file contained within the project.",Not Required,No,Not used by CB-GH.
+youtubeid,,,,sHhk1eAgopU,A unique string assigned a video uploaded to YouTube.,Text,This is the unique string assigned to a video when it is uploaded to YouTube. An easy way to find this is to look at the url for your YouTube video. The ID will be the string attached to the end of this url: https://www.youtube.com/watch?v=,Required if YouTube content is present,No,Used by CB-GH to display videos. Not used by CB-CSV.
+vimeoid,,,,464555587,A unique string assigned a video uploaded to Vimeo. ,Text,This is the unique string assigned to a video when it is uploaded to Vimeo. An easy way to find this is to look at the url for your Vimeo video. The ID will be the string attached to the end of this url: https://vimeo.com/464555587,Required if Vimeo content is present,No,Used by CB-GH to display videos. Not used by CB-CSV.
+collectionid,,,,dworshak,The collection alias assigned by a collection creator in CONTENTdm. LEGACY field not used by current CB templates!,Text,Usually a lowercase string containing text.,Recommended if using CB-CONTENTdm,No,Legacy field NOT used by current CB templates. Used by CB-CONTENTdm.
+cdmid,,,,1,A unique number with no spaces or special characters that is assigned to the object by CONTENTdm,Text,"This is the unique identification number assigned to an item by CONTENTdm. Optimally, this property should coincide with the item's objectid, but this correspondence is not necessary for CollectionBuilder to work.",Required if using CB-CONTENTdm,No,Legacy field NOT used by current CB templates. Used by CB-CONTENTdm.
