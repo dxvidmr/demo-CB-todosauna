@@ -8,11 +8,11 @@
 # URL VARIABLES
 #bu
 # site domain, full URL to the production location of your collection
-url: 
+url: https://dxvidmr.github.io
 # path to location on the domain if necessary e.g. /digital/hjccc
-baseurl: 
+baseurl: /demo-CB-todosauna
 # location of code, the full url to your github repository
-source-code: https://github.com/CollectionBuilder/collectionbuilder-csv
+source-code: https://github.com/dxvidmr/demo-CB-todosauna
 
 ##########
 # SITE SETTINGS
